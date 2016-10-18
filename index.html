@@ -1,0 +1,225 @@
+  <!DOCTYPE html>
+  <html  ng-app="myApp">
+
+    <head>
+      <title> Email Signature</title>
+      <meta charset="utf-8">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+      <style>
+        @font-face {
+          font-family: zwyt;
+          src: url(https://www.chanmao.ca/img/email/fzyt.TTF);
+        }
+
+      </style>
+    </head>
+
+    <body  ng-controller="PersonCtrl">
+      <div style="max-width: 600px; max-height: 128px;display: flex;">
+        <div style="width : 40%;
+                    overflow : hidden;
+                    display: inline-flex;
+                    justify-content:center;
+                    align-items: center;">
+          <img src="https://www.chanmao.ca/img/cmbottom.png" alt="chanmao logo"
+               style="width:95%; " />
+        </div>
+        <div style="width:20px;
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    margin-right: 8px;">
+            <img style="height: 84%;
+                        width: 2px;"
+                 src="https://www.chanmao.ca/img/email/line.png" alt="line" />
+        </div>
+        <div style="width:60%;
+                    align-items: center;
+                    justify-content: center;
+                    display: inline-flex;">
+          <div >
+            <div style="font-size: 20px;
+                        font-weight: 700;
+                        font-family: Myriad Pro;">
+              {{person.name}}
+            </div>
+            <div style="font-size: 15px;
+                        font-weight: 600;
+                        font-family: Myriad Pro;
+                        margin-top: -1px;">
+              {{person.title}}
+            </div>
+            <div style="font-size: 15px;
+                        font-weight: 600;
+                        font-family: Myriad Pro;
+                        margin-top: 2px;
+                        margin-bottom: 2px;">
+              <span style="color: #f7931e;
+                           font-weight: 800;">
+                          A
+              </span>
+              Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
+              <span style="color: #f7931e;
+                           font-weight: 800;">
+                          T
+              </span>
+
+              {{person.tel}}
+            </div>
+            <div style="font-size: 15px;
+                        font-weight: 600;
+                        font-family: Myriad Pro;
+                        display: inline-flex;
+                        align-items: center;">
+            <span style="font-family: zwyt;">馋猫</span>
+             <div style="width: 3px;
+                        height: 14px;
+                        background-color: #f7931e;
+                        margin-right: 6px;
+                        margin-left: 6px;">
+
+             </div>
+             <span style="margin-top: 3px;">Chanmao Inc.</span>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="display:flex">
+      <div>
+        <label>
+          Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" ng-model="show.name">&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" ng-click = "showitem()">Edit</button>
+        </label>
+        <br>
+        <br>
+        <label>
+          Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" ng-model="show.title">&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" ng-click = "createitem()">Create</button>
+        </label>
+        <br>
+        <br>
+        <label>
+          Telephone:
+          <input type="text" ng-model="show.tel">&nbsp;&nbsp;&nbsp;&nbsp;
+        </label>
+      </div>
+      <div>
+        <textarea style=" background-color: lightgrey;width: 700px;height:800px;align-items: left;">{{code}}</textarea>
+      </div>
+      </div>
+      <script type="text/javascript">
+        angular.module("myApp",[])
+        .controller("PersonCtrl",["$scope",function($scope){
+          $scope.person = {
+            name:"SHU WANG",
+            title:"Internship",
+            tel:"647-224-8006"
+          };
+          var show = {};
+          $scope.showitem = function(){
+            show.name = $scope.person.name;
+            show.title = $scope.person.title;
+            show.tel = $scope.person.tel;
+            $scope.show =show;
+          }
+          $scope.createitem=function(){
+            if(!show.name || !show.title|| !show.tel){
+
+            }else{
+
+            $scope.person.name = show.name;
+            $scope.person.title = show.title;
+            $scope.person.tel = show.tel;
+            $scope.code = `
+            <div style="max-width: 600px; max-height: 128px;display: flex;">
+              <div style="width : 40%;
+                          overflow : hidden;
+                          display: inline-flex;
+                          justify-content:center;
+                          align-items: center;">
+                <img src="https://www.chanmao.ca/img/cmbottom.png" alt="chanmao logo"
+                     style="width:95%; " />
+              </div>
+              <div style="width:20px;
+                          align-items: center;
+                          justify-content: center;
+                          display: flex;
+                          margin-right: 8px;">
+                  <img style="height: 84%;
+                              width: 2px;"
+                       src="https://www.chanmao.ca/img/email/line.png" alt="line" />
+              </div>
+              <div style="width:60%;
+                          align-items: center;
+                          justify-content: center;
+                          display: inline-flex;">
+                <div >
+                  <div style="font-size: 20px;
+                              font-weight: 700;
+                              font-family: Myriad Pro;">`+
+                                $scope.person.name +
+                 `</div>
+                  <div style="font-size: 15px;
+                                          font-weight: 600;
+                                          font-family: Myriad Pro;
+                                          margin-top: -1px;">` +
+                                $scope.person.title+
+                 `</div>
+                  <div style="font-size: 15px;
+                              font-weight: 600;
+                              font-family: Myriad Pro;
+                              margin-top: 2px;
+                              margin-bottom: 2px;">
+                    <span style="color: #f7931e;
+                                 font-weight: 800;">
+                                A
+                    </span>
+                    Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
+                    <span style="color: #f7931e;
+                                 font-weight: 800;">
+                                T
+                    </span>`+
+                    $scope.person.tel +
+                  `</div>
+                   <div style="font-size: 15px;
+                               font-weight: 600;
+                               font-family: Myriad Pro;
+                               display: inline-flex;
+                               align-items: center;">
+                     <span style="font-family: zwyt;">馋猫</span>
+                    <div style="width: 3px;
+                               height: 14px;
+                               background-color: #f7931e;
+                               margin-right: 6px;
+                               margin-left: 6px;">
+                    </div>
+                    <span style="margin-top: 3px;">Chanmao Inc.</span>
+                   </div>
+                  </div>
+                </div>
+               </div>`
+               $scope.clear();
+            }
+
+
+           }
+          $scope.clear = function(){
+            show.name = '';
+            show.title = '';
+            show.tel = '';
+          }
+          $scope.Print = function(){
+            console.log($scope.code)
+
+          }
+
+        }]);
+      </script>
+
+    </body>
+
+  </html>
