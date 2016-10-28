@@ -8,48 +8,57 @@
       <style>
         @font-face {
           font-family: zwyt;
-          src: url(https://www.chanmao.ca/img/email/fzyt.TTF);
+          src: url(https://www.chanmao.ca/font/fzyt.TTF);
+        }
+        @font-face {
+          font-family: Myriad Pro;
+          src: url(https://www.chanmao.ca/font/MyriadPro-Regular.otf);
+        }
+        #logo{
+          display: flex;
+        }
+        @media (max-width: 479px) {
+          #logo{
+            display: none;
+          }
         }
 
       </style>
     </head>
 
     <body  ng-controller="PersonCtrl">
-      <div style="max-width: 600px; max-height: 128px;display: flex;">
-        <div style="width : 40%;
+      <div style="max-width: 400px; max-height: 128px;display: flex;">
+        <div id="logo" style="width : 35%;
                     overflow : hidden;
-                    display: inline-flex;
                     justify-content:center;
                     align-items: center;">
           <img src="https://www.chanmao.ca/img/cmbottom.png" alt="chanmao logo"
-               style="width:95%; " />
+               style="width:95%;    max-width: 132px; " />
         </div>
-        <div style="width:20px;
+        <div id="logo" style="width:20px;
                     align-items: center;
-                    justify-content: center;
-                    display: flex;
-                    margin-right: 8px;">
-            <img style="height: 84%;
-                        width: 2px;"
+                    justify-content: center;">
+            <img style="height: 86%;
+                        width: 1.5px;"
                  src="https://www.chanmao.ca/img/email/line.png" alt="line" />
         </div>
-        <div style="width:60%;
+        <div style="width:65%;
                     align-items: center;
                     justify-content: center;
                     display: inline-flex;">
           <div >
-            <div style="font-size: 20px;
+            <div style="font-size: 14px;
                         font-weight: 700;
                         font-family: Myriad Pro;">
               {{person.name}}
             </div>
-            <div style="font-size: 15px;
+            <div style="font-size: 12px;
                         font-weight: 600;
                         font-family: Myriad Pro;
                         margin-top: -1px;">
               {{person.title}}
             </div>
-            <div style="font-size: 15px;
+            <div style="font-size: 10px;
                         font-weight: 600;
                         font-family: Myriad Pro;
                         margin-top: 2px;
@@ -66,14 +75,14 @@
 
               {{person.tel}}
             </div>
-            <div style="font-size: 15px;
+            <div style="font-size: 12px;
                         font-weight: 600;
                         font-family: Myriad Pro;
                         display: inline-flex;
                         align-items: center;">
             <span style="font-family: zwyt;">馋猫</span>
-             <div style="width: 3px;
-                        height: 14px;
+             <div style="width: 2px;
+                        height: 12px;
                         background-color: #f7931e;
                         margin-right: 6px;
                         margin-left: 6px;">
@@ -86,6 +95,7 @@
         </div>
 
       </div>
+
       <div style="display:flex">
       <div>
         <label>
@@ -135,74 +145,91 @@
             $scope.person.title = show.title;
             $scope.person.tel = show.tel;
             $scope.code = `
-            <div style="max-width: 600px; max-height: 128px;display: flex;">
-              <div style="width : 40%;
-                          overflow : hidden;
-                          display: inline-flex;
-                          justify-content:center;
-                          align-items: center;">
-                <img src="https://www.chanmao.ca/img/cmbottom.png" alt="chanmao logo"
-                     style="width:95%; " />
-              </div>
-              <div style="width:20px;
-                          align-items: center;
-                          justify-content: center;
-                          display: flex;
-                          margin-right: 8px;">
-                  <img style="height: 84%;
-                              width: 2px;"
-                       src="https://www.chanmao.ca/img/email/line.png" alt="line" />
-              </div>
-              <div style="width:60%;
-                          align-items: center;
-                          justify-content: center;
-                          display: inline-flex;">
-                <div >
-                  <div style="font-size: 20px;
-                              font-weight: 700;
-                              font-family: Myriad Pro;">`+
-                                $scope.person.name +
-                 `</div>
-                  <div style="font-size: 15px;
-                                          font-weight: 600;
-                                          font-family: Myriad Pro;
-                                          margin-top: -1px;">` +
-                                $scope.person.title+
-                 `</div>
-                  <div style="font-size: 15px;
-                              font-weight: 600;
-                              font-family: Myriad Pro;
-                              margin-top: 2px;
-                              margin-bottom: 2px;">
-                    <span style="color: #f7931e;
-                                 font-weight: 800;">
-                                A
-                    </span>
-                    Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
-                    <span style="color: #f7931e;
-                                 font-weight: 800;">
-                                T
-                    </span>`+
-                    $scope.person.tel +
-                  `</div>
-                   <div style="font-size: 15px;
-                               font-weight: 600;
-                               font-family: Myriad Pro;
-                               display: inline-flex;
-                               align-items: center;">
-                     <span style="font-family: zwyt;">馋猫</span>
-                    <div style="width: 3px;
-                               height: 14px;
-                               background-color: #f7931e;
-                               margin-right: 6px;
-                               margin-left: 6px;">
+            <style>
+              @font-face {
+                font-family: zwyt;
+                src: url(https://www.chanmao.ca/font/fzyt.TTF);
+              }
+              @font-face {
+                font-family: Myriad Pro;
+                src: url(https://www.chanmao.ca/font/MyriadPro-Regular.otf);
+              }
+              #logo{
+                display: flex;
+              }
+              @media (max-width: 479px) {
+                #logo{
+                  display: none;
+                }
+              }
+            </style>
+           <div style="max-width: 400px; max-height: 128px;display: flex;">
+                <div id="logo" style="width : 35%;
+                            overflow : hidden;
+                            justify-content:center;
+                            align-items: center;">
+                  <img src="https://www.chanmao.ca/img/cmbottom.png" alt="chanmao logo"
+                        max-width: 132px;
+                       style="width:95%; " />
+                </div>
+                <div id="logo" style="width:20px;
+                            align-items: center;
+                            justify-content: center;">
+                    <img style="height: 86%;
+                                width: 1.5px;"
+                         src="https://www.chanmao.ca/img/email/line.png" alt="line" />
+                </div>
+                <div style="width:65%;
+                            align-items: center;
+                            justify-content: center;
+                            display: inline-flex;">
+                  <div >
+                    <div style="font-size: 14px;
+                                font-weight: 700;
+                                font-family: Myriad Pro;">`+
+                      $scope.person.name+
+                    `</div>
+                    <div style="font-size: 12px;
+                                font-weight: 600;
+                                font-family: Myriad Pro;
+                                margin-top: -1px;">`+
+                      $scope.person.title+
+                    `</div>
+                    <div style="font-size: 10px;
+                                font-weight: 600;
+                                font-family: Myriad Pro;
+                                margin-top: 2px;
+                                margin-bottom: 2px;">
+                      <span style="color: #f7931e;
+                                   font-weight: 800;">
+                                  A
+                      </span>
+                      Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
+                      <span style="color: #f7931e;
+                                   font-weight: 800;">
+                                  T
+                      </span>`+
+
+                      $scope.person.tel +
+                    `</div>
+                    <div style="font-size: 12px;
+                                font-weight: 600;
+                                font-family: Myriad Pro;
+                                display: inline-flex;
+                                align-items: center;">
+                    <span style="font-family: zwyt;">馋猫</span>
+                     <div style="width: 2px;
+                                height: 12px;
+                                background-color: #f7931e;
+                                margin-right: 6px;
+                                margin-left: 6px;">
+
+                     </div>
+                     <span style="margin-top: 3px;">Chanmao Inc.</span>
                     </div>
-                    <span style="margin-top: 3px;">Chanmao Inc.</span>
-                   </div>
                   </div>
                 </div>
-               </div>`
-               $scope.clear();
+              </div>`
             }
 
 
