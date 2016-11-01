@@ -14,7 +14,7 @@
           font-family: Myriad Pro;
           src: url(https://www.chanmao.ca/font/MyriadPro-Regular.otf);
         }
-    #test{
+    .container{
       position:relative;
       max-width: 500px;
       max-height: 128px;
@@ -25,23 +25,32 @@
         background-position: left center;
         height: 128px;
     }
-    #signature {
+    .signature {
       position:absolute;
-      top: 24%;
-      left: 21%;
+      top: 26.5%;
+      left: 40%;
     }
-    @media (max-width: 479px) {
-          #signature{
+    #address{
+      line-height: 30px;
+      margin-bottom: -6px;
+      margin-top: -4px;
+    }
+    @media (max-width: 520px) {
+          .signature{
             position:absolute;
-            margin-left:-40px;
-            top: 0%;
+            top: 20%;
             left: 0%;
           }
-          #test{
+          .container{
             background-image:url("");
           }
           #title{
             margin-top:4px;
+          }
+          #address{
+            line-height: 15px;
+            margin-top: 6px;
+            margin-bottom: 3px;
           }
         }
 
@@ -49,12 +58,8 @@
   </head>
 
   <body  ng-controller="PersonCtrl">
-    <div id = "test">
-      <div id="signature" style="width:100%;
-                  align-items: center;
-                  justify-content: center;
-                  display: inline-flex;">
-        <div id = "">
+    <div class = "container">
+        <div class = "signature">
           <div style="font-size: 0.89em;
                       font-weight: 900;
                       margin-bottom:-2px;
@@ -82,7 +87,7 @@
                         font-weight: 600;
                         font-family: Myriad Pro;
                         margin-top: -2.5px;line-height: 19px;margin-bottom: 4px;">
-             <div id="address"style = "line-height: 30px;">
+             <div id="address">
                 <span style="color: #f7931e;
                              font-weight: 800;
                              display: inline-flex;">
@@ -99,8 +104,8 @@
              </div>
            </div>
         </div>
-       </div>
      </div>
+     <!-- editor -->
      <div style="display:flex">
       <div>
         <label>
@@ -149,83 +154,84 @@
             $scope.person.name = show.name;
             $scope.person.title = show.title;
             $scope.person.tel = show.tel;
-            $scope.code = `    <style>
+            $scope.code = `<style>
+            @font-face {
+                  font-family: zwyt;
+                  src: url(https://www.chanmao.ca/font/fzyt.TTF);
+                }
                 @font-face {
-                      font-family: zwyt;
-                      src: url(https://www.chanmao.ca/font/fzyt.TTF);
-                    }
-                    @font-face {
-                      font-family: Myriad Pro;
-                      src: url(https://www.chanmao.ca/font/MyriadPro-Regular.otf);
-                    }
-                #test{
-                  position:relative;
-                  max-width: 500px;
-                  max-height: 128px;background-color: white;background-image: url('http://www.chanmao.ca/img/email/backgound.png');background-size: auto 80%;background-repeat: no-repeat;background-position: left center;height: 128px;
+                  font-family: Myriad Pro;
+                  src: url(https://www.chanmao.ca/font/MyriadPro-Regular.otf);
                 }
-                #signature {position:absolute;top: 24%;left: 21%;
+            .container{
+              position:relative;max-width: 500px;max-height: 128px;background-color: white;
+              background-image: url('http://www.chanmao.ca/img/email/backgound.png');background-size: auto 80%;background-repeat: no-repeat;background-position: left center;height: 128px;
+            }
+            .signature {position:absolute;top: 26.5%;left: 40%;
+            }
+            #address{
+              line-height: 30px;margin-bottom: -6px;margin-top: -4px;
+            }
+            @media (max-width: 520px) {
+                  .signature{position:absolute;top: 20%;left: 0%;
+                  }
+                  .container{
+                    background-image:url("");
+                  }
+                  #title{
+                    margin-top:4px;
+                  }
+                  #address{line-height: 15px;margin-top: 6px;margin-bottom: 3px;
+                  }
                 }
-                @media (max-width: 479px) {
-                      #signature{
-                        position:absolute;
-                        margin-left:-40px;top:0%;left:0%;
-                      }
-                      #test{
-                        background-image:url("");
-                      }
-                      #title{
-                        margin-top:4px;
-                      }
-                    }
-
-                </style>
-              </head>
-
-              <body  ng-controller="PersonCtrl">
-                <div id = "test">
-                  <div id="signature" style="width:100%;align-items: center;  justify-content: center;  display: inline-flex;">
-                    <div>
-                      <div style="font-size: 0.89em;font-weight: 900;margin-bottom:-2px;font-family: Myriad Pro;line-height: 15px;">`+
+            </style>
+          <body  ng-controller="PersonCtrl">
+            <div class = "container">
+                <div class = "signature">
+                  <div style="font-size: 0.89em;
+                              font-weight: 900;
+                              margin-bottom:-2px;
+                              font-family: Myriad Pro;
+                              line-height: 15px;">`+
                                 $scope.person.name+
-                                `</div>
-                                <div id = "title" style="font-size: 0.85em;
-                                            font-weight: 800;
-                                            font-family: Myriad Pro;
-                                            display: inline-flex;
-                                            align-items: center;
-                                            line-height:15px;">`+
+                                `  </div>
+                                  <div id = "title" style="font-size: 0.85em;
+                                              font-weight: 800;
+                                              font-family: Myriad Pro;
+                                              display: inline-flex;
+                                              align-items: center;
+                                              line-height:15px;">`+
                                 $scope.person.title+
-                                `<div style="width: 2px;
-                                            height: 12px;
-                                            background-color: #f7931e;
-                                            margin-right: 6px;
-                                            margin-left: 6px;
-                                            margin-bottom:3px;">
-                                 </div>
-                                          <span>Chanmao Inc.</span>
-                              </div>
-                              <div style="font-size: 0.8em;
-                                            font-weight: 600;
-                                            font-family: Myriad Pro;
-                                            margin-top: -2.5px;line-height: 19px;margin-bottom: 4px;">
-                                 <div id="address"style = "line-height: 30px;">
-                                    <span style="color: #f7931e;
-                                                 font-weight: 800;
-                                                 display: inline-flex;">
-                                      A
-                                    </span>
-                                      Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
-                                 </div>
-                                 <div  id = "address" style = "line-height: 16px;margin-top:-2px;margin-bottom:-4px">
-                                    <span style="color: #f7931e;
-                                                 font-weight: 800;">
-                                      T
-                                    </span>`+
+                                `  <div style="width: 2px;
+                                              height: 12px;
+                                              background-color: #f7931e;
+                                              margin-right: 6px;
+                                              margin-left: 6px;
+                                              margin-bottom:3px;">
+                                   </div>
+                                            <span>Chanmao Inc.</span>
+                                </div>
+                                <div style="font-size: 0.8em;
+                                              font-weight: 600;
+                                              font-family: Myriad Pro;
+                                              margin-top: -2.5px;line-height: 19px;margin-bottom: 4px;">
+                                   <div id="address">
+                                      <span style="color: #f7931e;
+                                                   font-weight: 800;
+                                                   display: inline-flex;">
+                                        A
+                                      </span>
+                                        Unit 14A-30 Wertheim Ct, Richmond Hill, ON L4B 1B9<br>
+                                   </div>
+                                   <div  id = "address" style = "line-height: 16px;margin-top:-2px;margin-bottom:-4px">
+                                      <span style="color: #f7931e;
+                                                   font-weight: 800;">
+                                        T
+                                      </span>`+
                                       $scope.person.tel+
                                       `</div>
                                     </div>
                                  </div>
-                                </div>
                               </div>`
             }
           }
@@ -241,6 +247,7 @@
 
                   }]);
                 </script>
+     <!-- editor  end-->
 
 </body>
 </html>
